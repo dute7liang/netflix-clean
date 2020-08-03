@@ -1,0 +1,13 @@
+server:
+  port: 7070
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7070/eureka/
+#    register-with-eureka: false # 禁止注册自己为服务
+#    fetch-registry: false
+  instance:
+    hostname: eureka-service
+spring:
+  application:
+    name: eureka-service
