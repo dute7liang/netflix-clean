@@ -1,0 +1,13 @@
+server:
+  port: 8093
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7070/eureka/
+spring:
+  application:
+    name: consumer
+# 指定修改Ribbon的负载均衡机制
+provide:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

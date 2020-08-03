@@ -3,11 +3,15 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7070/eureka/
-#    register-with-eureka: false # 禁止注册自己为服务
-#    fetch-registry: false
+      defaultZone: http://localhost:${server.port}/eureka/
+    register-with-eureka: false # 禁止注册自己为服务(单机使用)
+    fetch-registry: false # 要不要去注册中心获取其他服务的地址(单机使用)
   instance:
-    hostname: eureka-service
+    hostname: ${spring.application.name}
+    prefer-ip-address: false
+  server:
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.85
 spring:
   application:
     name: eureka-service
